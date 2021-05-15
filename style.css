@@ -1,0 +1,275 @@
+div,
+button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: sans-serif; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.game {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border: 10px solid #1895ac;
+  border-radius: 20px;
+  max-width: 100%;
+  box-shadow: 
+  1px 1px 5px 1px rgba(0, 0, 0, 0.2),
+  -1px -1px 5px 1px rgba(0, 0, 0, 0.2);
+  background: #e0edf2;
+}
+
+.game-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.game-sidebar {
+  padding: 20px;
+}
+
+.fortune-wheel {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  border: 5px solid #1895ac;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #d6f7ff;
+}
+
+.fortune-wheel:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translateY(-50%) rotate(45deg);
+  border: 22px solid #1895ac;
+  box-shadow: 
+  1px 1px 1px 1px rgba(0, 0, 0, 0.5),
+  -1px -1px 1px 1px rgba(0, 0, 0, 0.5);
+  
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.startBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  box-shadow: 
+  1px 1px 15px 2px rgba(0, 0, 0, 0.3),
+  -1px -1px 15px 2px rgba(0, 0, 0, 0.3);
+  border: 10px solid #d9f5f5;
+  background: #1ebbd7;  
+  font-weight: bold;
+  font-size: 24px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.specialBtn {
+  position: relative;
+  width: 140px;
+  height: 70px;
+  border-radius: 50px;
+  padding: 10px;
+  background: #79e7ff;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: inset -1px -1px 3px 1px rgba(0, 0, 0, 0.1),
+              inset 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  transition: 0.5s ease all;
+  text-align: right;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5),
+              -1px -1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.specialBtn:before {
+  content: 'Off';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: #1895ac;
+  border-radius: 50%;
+  transition: 0.5s ease all;
+  font-size: 16px;
+  font-weight: normal;
+  text-shadow: none;
+}
+
+.specialBtn.active {
+  background: #ffb5c9;
+  padding-right: 75px;
+}
+
+.specialBtn.active:before {
+  content: 'On';
+  background: #b24b67;
+  transform: translateX(70px);
+}
+
+.results{
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7),
+              -1px -1px 3px rgba(0, 0, 0, 0.7);
+  font-size: 20px;
+  font-weight: bold;
+  border: 5px solid #1895ac;
+  border-radius: 10px;
+  text-align: left;
+  color: #fff;
+}
+
+.results th,
+.results td {
+  padding: 4px 15px;
+  
+}
+
+@media(max-width: 720px) {
+  body {
+    display: block;
+  }
+
+  .game {
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: none;
+    border: none;
+    background: #fff;
+  }
+
+  .game-main {
+    width: 100%;
+  }
+
+  .game-sidebar {
+    width: 70%;
+  }
+
+  .fortune-wheel {
+    margin-bottom: 40px;
+  }
+
+  .results {
+    width: 100%;
+  }
+}
+
+@media(max-width: 500px) {
+  .game {
+    width: 100%;
+  }
+
+  .game-main,
+  .game-sidebar {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .fortune-wheel {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+  }
+
+  .fortune-wheel:after {
+    right: -35px;
+    border-width: 20px;
+  }
+
+  .fortune-wheel canvas {
+    max-width: 97%;
+  }
+
+  .startBtn {
+    font-size: 13px;
+    width: 60px;
+    height: 60px;
+    border-width: 5px;
+  }
+}
+
+@media(max-height: 720px) {
+  body {
+    display: block;
+  }
+
+  .fortune-wheel {
+    width: 300px;
+    height: 300px;
+  }
+
+  .fortune-wheel:after {
+    right: -35px;
+    border-width: 20px;
+  }
+  
+  .game {
+    width: 100%;
+  }
+
+  .game-main {
+    justify-content: space-around;
+  }
+
+  .game-main,
+  .game-sidebar {
+    width: 100%;
+  }
+
+  .results {
+    width: 100%;
+  }
+
+  .fortune-wheel canvas {
+    max-width: 97%;
+  }
+
+  .startBtn {
+    font-size: 13px;
+    width: 60px;
+    height: 60px;
+    border-width: 5px;
+  }
+}
